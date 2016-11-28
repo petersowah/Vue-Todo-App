@@ -1,21 +1,29 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div class="container">
+    <div id="app">
+      <!-- <pre>{{ $data }}</pre> -->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>Awesome Todo</h2>
+          <form class="form-horizontal" action="">
+
+            <div class="input-group">
+             <input type="text" class="form-control" v-model="todo">
+             <span class="input-group-btn">
+                  <button class="btn btn-success" type="button">+</button>
+             </span>
+          </div>
+          </form>
+
+          <ul class="list-group">
+            <li class="list-group-item" v-for="(todo, index) in todoList">
+              {{ todo.task }}
+              <button class="btn btn-danger btn-xs pull-right">X</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,10 +32,16 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      todoList: [
+        { id: 1, task: 'Get Paid'},
+        { id: 2, task: 'Take mom out for a treat.'}
+      ],
+      newTodoItem: {id: null, task: ''}
     }
   }
 }
+
+
 </script>
 
 <style>
@@ -38,6 +52,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+ul.list-group {
+    margin-top: 15px;
 }
 
 h1, h2 {
