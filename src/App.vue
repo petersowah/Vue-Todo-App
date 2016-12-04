@@ -8,19 +8,13 @@
           <form class="form-horizontal" action="">
 
             <div class="input-group">
-             <input type="text" class="form-control" v-model="todo">
+             <input type="text" class="form-control">
              <span class="input-group-btn">
                   <button class="btn btn-success" type="button">+</button>
              </span>
           </div>
           </form>
-
-          <ul class="list-group">
-            <li class="list-group-item" v-for="(todo, index) in todoList">
-              {{ todo.task }}
-              <button class="btn btn-danger btn-xs pull-right">X</button>
-            </li>
-          </ul>
+            <TaskList></TaskList>
         </div>
       </div>
     </div>
@@ -28,17 +22,16 @@
 </template>
 
 <script>
+import TaskList from './components/TaskList.vue'
+
 export default {
   name: 'app',
-  data () {
-    return {
-      todoList: [
-        { id: 1, task: 'Get Paid'},
-        { id: 2, task: 'Take mom out for a treat.'}
-      ],
-      newTodoItem: {id: null, task: ''}
-    }
-  }
+  components: { TaskList },
+  // data () {
+  //   return {
+  //
+  //   }
+  // }
 }
 
 
