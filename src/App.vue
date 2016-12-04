@@ -4,7 +4,7 @@
       <!-- <pre>{{ $data }}</pre> -->
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h2>Awesome Todo</h2>
+          <h2>Awesome Todo</h2> 05 December, 2016
           <form class="form-horizontal" action="">
 
             <div class="input-group">
